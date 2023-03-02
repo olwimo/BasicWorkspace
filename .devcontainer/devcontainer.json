@@ -1,0 +1,48 @@
+{
+  "name": "Basic",
+  "image": "jupyter/datascience-notebook:latest",
+  "shutdownAction": "stopContainer",
+  "mounts": [
+    "source=${localEnv:HOME}/.gitconfig,target=/home/jovyan/.gitconfig,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/home/jovyan/.ssh,type=bind,consistency=cached",
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind,consistency=cached"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  // "forwardPorts": [9000],
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
+  "overrideCommand": true,
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+  "runArgs": ["--gpus", "all"],
+  // "privileged": true,
+  "remoteUser": "jovyan",
+  "containerUser": "jovyan",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "version": "latest",
+      "moby": true,
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "os-provided",
+      "ppa": true
+    },
+    "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+      "installCudnn": true,
+      "installNvtx": true,
+      "cudaVersion": "11.8",
+      "cudnnVersion": "8.6.0.163"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.eol": "\n"
+      }
+    }
+  }
+}
