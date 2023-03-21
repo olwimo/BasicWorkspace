@@ -42,7 +42,20 @@
     "vscode": {
       "settings": {
         "files.eol": "\n"
-      }
+      },
+      "extensions": [
+        "mgmcdermott.vscode-language-babel",
+        "dbaeumer.vscode-eslint",
+        "freebroccolo.input-assist",
+        "ms-python.isort",
+        "julialang.language-julia",
+        "ms-toolsai.jupyter",
+        "esbenp.prettier-vscode",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "msrvida.vscode-sanddance",
+        "redhat.vscode-yaml"
+      ]
     }
   }
 }
